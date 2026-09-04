@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Tienda Parking</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+    <div class="app-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <a th:href="@{/}" class="brand-title">
+                        <div>
+                            Tienda Parking
+                            <span class="brand-subtitle">Gestión de Parqueadero</span>
+                        </div>
+                    </a>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <a th:href="@{/}" class="nav-item active">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            <span>Dashboard</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/carros}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            <span>Carros</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/motores}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            <span>Motores</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/choferes}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span>Choferes</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/pasajeros}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.87"></path><path d="M9 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path><path d="M21 21v-2a4 4 0 0 0-3-3.85"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                            <span>Pasajeros</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/viajes}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"></circle><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"></path><circle cx="18" cy="5" r="3"></circle></svg>
+                            <span>Viajes</span>
+                        </div>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- MAIN WRAPPER -->
+        <main class="main-wrapper">
+            <!-- TOP HEADER -->
+            <header class="top-header">
+                <div class="page-breadcrumb">Vista General</div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" class="search-input" placeholder="Buscar viajes, carros, choferes...">
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT AREA -->
+            <div class="content-area">
+                <!-- DASHBOARD HEADER -->
+                <div class="dashboard-header">
+                    <div class="dashboard-title-group">
+                        <h1>Panel de Control</h1>
+                        <p>Métricas en tiempo real y actividad reciente del sistema de parqueadero.</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-outline" id="btn-export">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Exportar Reporte General (.xlsx)
+                        </button>
+                        <a th:href="@{/viajes}" class="btn btn-black">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            NUEVO VIAJE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KPI METRICS GRID -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <span class="kpi-label">Viajes Activos</span>
+                            <div class="kpi-icon-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"></circle><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"></path><circle cx="18" cy="5" r="3"></circle></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" th:text="${totalViajes}">0</div>
+                        <div class="kpi-subtext">
+                            <span class="trend-up">↗ +12.5%</span> esta semana
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <span class="kpi-label">Vehículos (Carros)</span>
+                            <div class="kpi-icon-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" th:text="${totalCarros}">0</div>
+                        <div class="kpi-subtext">● Flota disponible</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <span class="kpi-label">Motores Registrados</span>
+                            <div class="kpi-icon-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" th:text="${totalMotores}">0</div>
+                        <div class="kpi-subtext">⚙ Especificaciones técnicas</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <span class="kpi-label">Choferes en Servicio</span>
+                            <div class="kpi-icon-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" th:text="${totalChoferes}">0</div>
+                        <div class="kpi-subtext">⏱ 98% en servicio</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <span class="kpi-label">Pasajeros Registrados</span>
+                            <div class="kpi-icon-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.87"></path><path d="M9 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path><path d="M21 21v-2a4 4 0 0 0-3-3.85"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value" th:text="${totalPasajeros}">0</div>
+                        <div class="kpi-subtext">Registrados en MySQL</div>
+                    </div>
+                </div>
+
+                <!-- LATEST TRIPS TABLE CARD -->
+                <div class="precision-card">
+                    <div class="precision-card-header">
+                        <h2>Últimos Viajes Registrados</h2>
+                        <a th:href="@{/viajes}" class="link-all">
+                            Ver Todos
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                    <div class="table-container">
+                        <table class="table-precision">
+                            <thead>
+                                <tr>
+                                    <th>ID Viaje</th>
+                                    <th>Vehículo (Carro)</th>
+                                    <th>Serie Motor</th>
+                                    <th>Chofer</th>
+                                    <th>Pasajero</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="v : ${viajesRecientes}">
+                                    <td class="font-mono" th:text="${'TRP-' + v.idViaje}">TRP-1</td>
+                                    <td th:text="${v.carro.marca + ' ' + v.carro.modelo + ' (' + v.carro.placa + ')'}">Toyota (qwe123)</td>
+                                    <td th:text="${v.motor.tipo + ' (' + v.motor.numeroSerie + ')'}">Diesel (serie123)</td>
+                                    <td th:text="${v.chofer.nombre + ' (' + v.chofer.cedula + ')'}">Cristian</td>
+                                    <td th:text="${v.pasajero.nombreCompleto + ' (' + v.pasajero.cedula + ')'}">Patricia Rojas</td>
+                                    <td>
+                                        <span class="badge-pill badge-in-transit">En Tránsito</span>
+                                    </td>
+                                </tr>
+                                <tr th:if="${#lists.isEmpty(viajesRecientes)}">
+                                    <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 2rem;">No hay viajes registrados aún en la base de datos MySQL.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="app-footer">
+                Tienda Parking • Spring Boot 3.3.5 • Conexión MySQL (tienda_parking)
+            </footer>
+        </main>
+    </div>
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choferes - Tienda Parking</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+    <div class="app-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <a th:href="@{/}" class="brand-title">
+                        <div>
+                            Tienda Parking
+                            <span class="brand-subtitle">Gestión de Parqueadero</span>
+                        </div>
+                    </a>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <a th:href="@{/}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            <span>Dashboard</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/carros}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            <span>Carros</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/motores}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            <span>Motores</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/choferes}" class="nav-item active">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span>Choferes</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/pasajeros}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.87"></path><path d="M9 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path><path d="M21 21v-2a4 4 0 0 0-3-3.85"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                            <span>Pasajeros</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/viajes}" class="nav-item">
+                        <div class="nav-item-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"></circle><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"></path><circle cx="18" cy="5" r="3"></circle></svg>
+                            <span>Viajes</span>
+                        </div>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- MAIN WRAPPER -->
+        <main class="main-wrapper">
+            <!-- TOP HEADER -->
+            <header class="top-header">
+                <div class="page-breadcrumb">Gestión de Choferes</div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" class="search-input" placeholder="Buscar choferes por nombre, cédula...">
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT AREA -->
+            <div class="content-area">
+                <div class="dashboard-header">
+                    <div class="dashboard-title-group">
+                        <h1>Gestión de Conductores</h1>
+                        <p>Registrar y supervisar choferes autorizados en la base de datos MySQL (Tabla <code>chofer</code>).</p>
+                    </div>
+                </div>
+
+                <!-- ALERTS -->
+                <div th:if="${mensajeExito}" class="alert alert-success" th:text="${mensajeExito}"></div>
+                <div th:if="${mensajeError}" class="alert alert-danger" th:text="${mensajeError}"></div>
+
+                <!-- LAYOUT SPLIT (FORM + TABLE) -->
+                <div class="layout-split">
+                    <!-- FORM PANEL -->
+                    <div class="form-panel">
+                        <div class="form-panel-header">
+                            <h2>Registrar Chofer</h2>
+                        </div>
+                        <form th:action="@{/choferes/guardar}" th:object="${nuevoChofer}" method="post">
+                            <div class="form-group">
+                                <label for="cedula" class="form-label">Número de Cédula (Solo dígitos: 6 a 12)</label>
+                                <input type="text" id="cedula" th:field="*{cedula}" class="form-control" 
+                                       placeholder="Ej: 1092529985" 
+                                       pattern="[0-9]{6,12}" 
+                                       minlength="6" maxlength="12" 
+                                       inputmode="numeric" 
+                                       oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+                                       title="La cédula debe contener solo números (entre 6 y 12 dígitos)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nombre" class="form-label">Nombre Completo (Solo letras)</label>
+                                <input type="text" id="nombre" th:field="*{nombre}" class="form-control" 
+                                       placeholder="Ej: Cristian Schmidt" 
+                                       pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,100}" 
+                                       minlength="2" maxlength="100" 
+                                       oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" 
+                                       title="El nombre solo debe contener letras y espacios (mínimo 2 letras)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="licencia" class="form-label">Número de Licencia</label>
+                                <input type="text" id="licencia" th:field="*{licencia}" class="form-control" 
+                                       placeholder="Ej: 1092529985" 
+                                       pattern="[A-Za-z0-9-]{5,20}" 
+                                       minlength="5" maxlength="20" 
+                                       title="Número de licencia válido (5 a 20 caracteres)" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-black" style="width: 100%; margin-top: 0.5rem;">Guardar en MySQL</button>
+                        </form>
+                    </div>
+
+                    <!-- TABLE PANEL -->
+                    <div class="precision-card">
+                        <div class="precision-card-header">
+                            <h2>Choferes Registrados</h2>
+                        </div>
+                        <div class="table-container">
+                            <table class="table-precision">
+                                <thead>
+                                    <tr>
+                                        <th>Cédula</th>
+                                        <th>Nombre del Chofer</th>
+                                        <th>Licencia</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="ch : ${choferes}">
+                                        <td class="font-mono" th:text="${ch.cedula}">1092529985</td>
+                                        <td th:text="${ch.nombre}" style="font-weight: 600;">Cristian</td>
+                                        <td th:text="${ch.licencia}">1092529985</td>
+                                        <td>
+                                            <span class="badge-pill badge-delivered">En Servicio</span>
+                                        </td>
+                                        <td>
+                                            <a th:href="@{/choferes/eliminar/{cedula}(cedula=${ch.cedula})}" class="btn btn-danger-outline" onclick="return confirm('¿Desea eliminar este chofer?')">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    <tr th:if="${#lists.isEmpty(choferes)}">
+                                        <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 2rem;">No hay choferes registrados en la base de datos MySQL.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="app-footer">
+                Tienda Parking • Spring Boot 3.3.5 • Conexión MySQL (tienda_parking)
+            </footer>
+        </main>
+    </div>
+
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>
