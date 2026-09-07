@@ -32,6 +32,35 @@ function inicializarApp() {
             exportarReporteGeneralExcel();
         });
     }
+
+    // ── 3. MENÚ MÓVIL RESPONSIVE (SIDEBAR TOGGLE) ───────────────────────────
+    var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    var sidebar = document.querySelector('.sidebar');
+    var overlay = document.getElementById('sidebarOverlay');
+
+    function toggleSidebar() {
+        if (!sidebar) return;
+        var isOpen = sidebar.classList.toggle('open');
+        if (overlay) {
+            overlay.classList.toggle('active', isOpen);
+        }
+    }
+
+    function closeSidebar() {
+        if (sidebar) sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('active');
+    }
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleSidebar();
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closeSidebar);
+    }
 }
 
 // Inicializar cuando el DOM esté listo
